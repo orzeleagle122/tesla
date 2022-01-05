@@ -9,7 +9,7 @@ import Section from "./components/Section";
 function App() {
     return (
         <div className="App">
-            {/*<Header/>*/}
+            <Header/>
             <Home/>
             {/*<Section/>*/}
         </div>

@@ -1,22 +1,30 @@
 import React from 'react';
 import styled, {css} from 'styled-components';
+import Fade from 'react-reveal/Fade'
 
-const Section = () => {
+const Section = ({title, desc, image}) => {
     return (
-        <Wrap>
-            <ItemText>
-                <h1>Model S</h1>
-                <p>Order Online for Touchless Delivery</p>
-            </ItemText>
+        <Wrap bgImage={image}>
+            <Fade bottom>
+                <ItemText>
+                    <h1>{title}</h1>
+                    <p>{desc}</p>
+                </ItemText>
+            </Fade>
+
             <ButtonGroup>
-                <SectionButton>
-                    Custom Order
-                </SectionButton>
-                <SectionButton secondary>
-                    Existing Inventory
-                </SectionButton>
+                <Fade bottom>
+                    <SectionButton>
+                        Custom Order
+                    </SectionButton>
+                    <SectionButton secondary>
+                        Existing Inventory
+                    </SectionButton>
+                </Fade>
             </ButtonGroup>
+
             <DownArrow src={`/images/down-arrow.svg`}/>
+
         </Wrap>
     );
 };
@@ -27,7 +35,8 @@ const Wrap = styled.div`
   width: 100vw;
   height: 100vh;
   background-size: cover;
-  background-image: url("/images/model-s.jpg");
+  //background-image: url("/images/model-s.jpg");
+  background-image: ${props => `url("/images/${props.bgImage}")`};
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
@@ -79,3 +88,4 @@ const DownArrow = styled.img`
   animation: animateDown infinite 1.5s;
   overflow-x: hidden;
 `;
+
